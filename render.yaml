@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: invoice-generator
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn invoice_generator.wsgi:application"
+
+    envVars:
+      - key: DEBUG
+        value: False
+
+      - key: SECRET_KEY
+        generateValue: true
