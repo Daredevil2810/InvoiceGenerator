@@ -1,0 +1,244 @@
+{% extends 'invoices/base.html' %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="card shadow-lg border-0 rounded-4">
+
+        <div class="card-header bg-dark text-white p-4 rounded-top-4">
+
+            <h2 class="mb-1">
+                Company Profile
+            </h2>
+
+            <p class="mb-0">
+                Manage your company information, GST details,
+                banking details and branding.
+            </p>
+
+        </div>
+
+        <div class="card-body p-5">
+
+            <form method="POST"
+                  enctype="multipart/form-data">
+
+                {% csrf_token %}
+
+                <!-- COMPANY DETAILS -->
+
+                <div class="mb-5">
+
+                    <h4 class="border-bottom pb-2 mb-4 text-primary">
+
+                        Company Information
+
+                    </h4>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-bold">
+
+                                Company Name
+
+                            </label>
+
+                            {{ form.company_name }}
+
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-bold">
+
+                                GST Number
+
+                            </label>
+
+                            {{ form.gst_number }}
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-bold">
+
+                                Phone Number
+
+                            </label>
+
+                            {{ form.phone }}
+
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-bold">
+
+                                Email Address
+
+                            </label>
+
+                            {{ form.email }}
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-bold">
+
+                                Website
+
+                            </label>
+
+                            {{ form.website }}
+
+                        </div>
+
+                    </div>
+
+                    <div class="mb-4">
+
+                        <label class="form-label fw-bold">
+
+                            Company Address
+
+                        </label>
+
+                        {{ form.address }}
+
+                    </div>
+
+                </div>
+
+                <!-- BANK DETAILS -->
+
+                <div class="mb-5">
+
+                    <h4 class="border-bottom pb-2 mb-4 text-success">
+
+                        Banking Details
+
+                    </h4>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-bold">
+
+                                Bank Name
+
+                            </label>
+
+                            {{ form.bank_name }}
+
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-bold">
+
+                                Account Number
+
+                            </label>
+
+                            {{ form.account_number }}
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-bold">
+
+                                IFSC Code
+
+                            </label>
+
+                            {{ form.ifsc_code }}
+
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-bold">
+
+                                Branch Name
+
+                            </label>
+
+                            {{ form.branch }}
+
+                        </div>
+
+                    </div>
+
+                    <div class="mb-4">
+
+                        <label class="form-label fw-bold">
+
+                            UPI ID
+
+                        </label>
+
+                        {{ form.upi_id }}
+
+                    </div>
+
+                </div>
+
+                <!-- TERMS -->
+
+                <div class="mb-5">
+
+                    <h4 class="border-bottom pb-2 mb-4 text-warning">
+
+                        Terms & Conditions
+
+                    </h4>
+
+                    <div class="mb-4">
+
+                        {{ form.terms_conditions }}
+
+                    </div>
+
+                </div>
+
+                <!-- BUTTON -->
+
+                <div class="text-end">
+
+                    <button type="submit"
+                            class="btn btn-success btn-lg px-5">
+
+                        Save Profile
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

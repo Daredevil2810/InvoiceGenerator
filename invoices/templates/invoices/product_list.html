@@ -1,0 +1,133 @@
+{% extends 'invoices/base.html' %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between mb-4">
+
+    <h2>
+        Products
+    </h2>
+
+    <a href="/add-product/"
+       class="btn btn-success">
+
+        Add Product
+
+    </a>
+
+</div>
+
+<div class="card p-4">
+
+    <div class="card shadow-sm border-0 mb-4">
+
+        <div class="card-body">
+
+            <form method="GET">
+
+                <div class="row align-items-center">
+
+                    <div class="col-md-10">
+
+                        <input type="text"
+                            name="q"
+                            class="form-control form-control-lg"
+
+                            placeholder="Search by product name..."
+
+                            value="{{ query|default:'' }}">
+
+                    </div>
+
+                    <div class="col-md-2 d-grid">
+
+                        <button type="submit"
+                                class="btn btn-success btn-lg">
+
+                            Search
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <table class="table table-bordered">
+
+        <thead>
+
+            <tr>
+
+                <th>Name</th>
+                <th>HSN</th>
+                <th>GST</th>
+                <th>Price</th>
+                <th>
+                    Actions
+                </th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for product in products %}
+
+            <tr>
+
+                <td>
+                    {{ product.product_name }}
+                </td>
+
+                <td>
+                    {{ product.hsn_sac }}
+                </td>
+
+                <td>
+                    {{ product.gst_percent }}%
+                </td>
+
+                <td>
+                    ₹ {{ product.selling_price }}
+                </td>
+
+                <td>
+
+                    <a href="{% url 'edit_product' product.id %}"
+                    class="btn btn-sm btn-warning">
+
+                        Edit
+
+                    </a>
+
+                    <a href="{% url 'delete_product' product.id %}"
+                    class="btn btn-sm btn-danger"
+
+                    onclick="return confirm(
+                    'Are you sure you want to delete this product?'
+                    )">
+
+                        Delete
+
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

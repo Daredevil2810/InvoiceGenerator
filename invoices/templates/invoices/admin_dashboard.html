@@ -1,0 +1,319 @@
+{% extends 'invoices/base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <h2 class="mb-4 fw-bold text-primary">
+        Admin Dashboard
+    </h2>
+
+    <!-- STATS CARDS -->
+
+    <div class="row mb-4">
+
+        <div class="col-md-4 mb-3">
+
+            <div class="card shadow border-0 p-3 text-center">
+
+                <h5 class="text-muted">
+                    Total Invoices
+                </h5>
+
+                <h2 class="fw-bold text-success">
+                    {{ total_invoices }}
+                </h2>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4 mb-3">
+
+            <div class="card shadow border-0 p-3 text-center">
+
+                <h5 class="text-muted">
+                    Total Customers
+                </h5>
+
+                <h2 class="fw-bold text-primary">
+                    {{ total_customers }}
+                </h2>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4 mb-3">
+
+            <div class="card shadow border-0 p-3 text-center">
+
+                <h5 class="text-muted">
+                    Total Products
+                </h5>
+
+                <h2 class="fw-bold text-warning">
+                    {{ total_products }}
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- PENDING USERS -->
+
+    <div class="card shadow-lg border-0 mb-4">
+
+        <div class="card-header bg-dark text-white">
+
+            <h5 class="mb-0">
+                Pending User Approvals
+            </h5>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="table-responsive">
+
+                <table class="table table-bordered table-hover align-middle">
+
+                    <thead class="table-light">
+
+                        <tr>
+
+                            <th>Username</th>
+
+                            <th>Date Joined</th>
+
+                            <th width="220">
+                                Actions
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for profile in pending_users %}
+
+                        <tr>
+
+                            <td>
+                                {{ profile.user.username }}
+                            </td>
+
+                            <td>
+                                {{ profile.created_at }}
+                            </td>
+
+                            <td>
+
+                                <a href="{% url 'approve_user' profile.id %}"
+                                   class="btn btn-success btn-sm">
+
+                                   Approve
+
+                                </a>
+
+                                <a href="{% url 'delete_user' profile.id %}"
+                                   class="btn btn-danger btn-sm"
+                                   onclick="return confirm('Delete this user?');">
+
+                                   Delete
+
+                                </a>
+
+                            </td>
+
+                        </tr>
+
+                        {% empty %}
+
+                        <tr>
+
+                            <td colspan="3"
+                                class="text-center text-muted">
+
+                                No pending users
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- APPROVED USERS -->
+
+    <div class="card shadow-lg border-0 mb-4">
+
+        <div class="card-header bg-primary text-white">
+
+            <h5 class="mb-0">
+                Approved Users
+            </h5>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="table-responsive">
+
+                <table class="table table-bordered table-hover align-middle">
+
+                    <thead class="table-light">
+
+                        <tr>
+
+                            <th>Username</th>
+
+                            <th>Date Joined</th>
+
+                            <th width="120">
+                                Actions
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for profile in approved_users %}
+
+                        <tr>
+
+                            <td>
+                                {{ profile.user.username }}
+                            </td>
+
+                            <td>
+                                {{ profile.created_at }}
+                            </td>
+
+                            <td>
+
+                                <a href="{% url 'delete_user' profile.id %}"
+                                   class="btn btn-danger btn-sm"
+                                   onclick="return confirm('Delete this user?');">
+
+                                   Delete
+
+                                </a>
+
+                            </td>
+
+                        </tr>
+
+                        {% empty %}
+
+                        <tr>
+
+                            <td colspan="3"
+                                class="text-center text-muted">
+
+                                No approved users
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- DEMO USERS -->
+
+    <div class="card shadow-lg border-0 mb-5">
+
+        <div class="card-header bg-warning">
+
+            <h5 class="mb-0">
+                Demo Users
+            </h5>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="table-responsive">
+
+                <table class="table table-bordered table-hover align-middle">
+
+                    <thead class="table-light">
+
+                        <tr>
+
+                            <th>Username</th>
+
+                            <th>Created At</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for profile in demo_users %}
+
+                        <tr>
+
+                            <td>
+                                {{ profile.user.username }}
+                            </td>
+
+                            <td>
+                                {{ profile.demo_created_at }}
+                            </td>
+
+                        </tr>
+
+                        {% empty %}
+
+                        <tr>
+
+                            <td colspan="2"
+                                class="text-center text-muted">
+
+                                No demo users
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

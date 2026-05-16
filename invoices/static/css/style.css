@@ -1,0 +1,279 @@
+body {
+
+    background: #f4f6f9;
+    font-family: Arial, sans-serif;
+}
+
+.invoice-container {
+
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.invoice-box {
+
+    background: white;
+    width: 210mm;
+    min-height: 297mm;
+    padding: 20mm;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.invoice-header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.invoice-title {
+
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.invoice-table th {
+
+    background: #343a40;
+    color: white;
+    text-align: center;
+}
+
+.invoice-table td {
+
+    vertical-align: middle;
+}
+
+.bank-box,
+.total-box {
+
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.signature-section {
+
+    margin-top: 60px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.signature-box {
+
+    width: 250px;
+    height: 120px;
+    border: 2px solid #000;
+    text-align: center;
+    padding-top: 90px;
+    font-weight: bold;
+}
+
+@media print {
+
+    body {
+
+        background: white;
+    }
+
+    .invoice-box {
+
+        box-shadow: none;
+        margin: 0;
+        width: 100%;
+        min-height: auto;
+    }
+
+    .no-print {
+
+        display: none;
+    }
+}
+
+@media print {
+
+    body {
+
+        background: white !important;
+
+        margin: 0 !important;
+
+        padding: 0 !important;
+    }
+
+    .navbar,
+    .btn,
+    .no-print {
+
+        display: none !important;
+    }
+
+    .invoice-box {
+
+        width: 100% !important;
+
+        min-height: auto !important;
+
+        padding: 10mm !important;
+
+        margin: 0 !important;
+
+        box-shadow: none !important;
+
+        border: none !important;
+    }
+
+    .container {
+
+        width: 100% !important;
+
+        max-width: 100% !important;
+
+        padding: 0 !important;
+
+        margin: 0 !important;
+    }
+
+    table {
+
+        font-size: 12px;
+    }
+
+    h1, h2, h3, h4, h5 {
+
+        margin-bottom: 5px !important;
+    }
+
+    p {
+
+        margin-bottom: 3px !important;
+    }
+
+    .signature-box {
+
+        height: 80px !important;
+    }
+
+    @page {
+
+        size: A4;
+
+        margin: 8mm;
+    }
+}
+
+form input,
+form textarea,
+form select {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    border: 1px solid #ced4da;
+
+    transition: 0.3s;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+
+    border-color: #198754;
+
+    box-shadow: 0 0 8px rgba(25,135,84,0.25);
+
+    outline: none;
+}
+
+.card {
+
+    border-radius: 20px;
+}
+
+.card-header {
+
+    border-top-left-radius: 20px !important;
+
+    border-top-right-radius: 20px !important;
+}
+
+.invoice-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 40px;
+
+    margin-bottom: 20px;
+
+    flex-wrap: nowrap;
+}
+
+/* LEFT SIDE */
+
+.company-section {
+
+    width: 65%;
+
+    word-wrap: break-word;
+}
+
+.company-name {
+
+    font-size: 42px;
+
+    font-weight: 700;
+
+    margin-bottom: 10px;
+
+    color: #222;
+}
+
+.company-details {
+
+    margin-bottom: 5px;
+
+    font-size: 17px;
+
+    line-height: 1.5;
+
+    color: #444;
+}
+
+/* RIGHT SIDE */
+
+.invoice-info-section {
+
+    width: 35%;
+
+    text-align: right;
+
+    flex-shrink: 0;
+}
+
+.invoice-title {
+
+    font-size: 52px;
+
+    font-weight: 800;
+
+    margin-bottom: 20px;
+
+    color: #111;
+
+    line-height: 1.1;
+}
+
+.invoice-info-section p {
+
+    margin-bottom: 10px;
+
+    font-size: 18px;
+}

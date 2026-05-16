@@ -1,0 +1,51 @@
+{% extends 'invoices/base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-md-6">
+
+        <div class="card shadow-lg border-0">
+
+            <div class="card-body p-5">
+
+                <h2 class="text-center mb-4">
+
+                    Create Account
+
+                </h2>
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+                    {{ form.as_p }}
+
+                    <button class="btn btn-success w-100">
+
+                        Create Account
+
+                    </button>
+
+                </form>
+
+                <div class="text-center mt-3">
+
+                    <a href="/login/">
+
+                        Already have account?
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
