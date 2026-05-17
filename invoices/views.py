@@ -520,7 +520,7 @@ def create_invoice(request):
 
         for i in range(len(product_ids)):
 
-            qty = Decimal(quantities[i])
+            qty = int(quantities[i])
 
             rate = Decimal(rates[i])
 
