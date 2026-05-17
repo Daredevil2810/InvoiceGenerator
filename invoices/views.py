@@ -482,6 +482,7 @@ def create_invoice(request):
             due_date=request.POST.get(
                 'due_date'
             ),
+            notes=request.POST.get('notes'),
             discount=Decimal(
                 request.POST.get(
                     'discount',
