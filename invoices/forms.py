@@ -41,7 +41,7 @@ class InvoiceForm(forms.ModelForm):
             'invoice_date',
             'due_date',
             'discount',
-            'notes'
+            'note'
         ]
 
         widgets = {
