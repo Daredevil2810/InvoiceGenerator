@@ -116,6 +116,12 @@ body {
     font-size: 12px;
     line-height: 1.5;
     word-break: break-word;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 12px;
+    min-height: 120px;
+    background: #fff;
 }
 
 .note-title {
