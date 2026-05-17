@@ -340,21 +340,25 @@
 
         </div>
 
-        <div class="notes-section mt-4">
+        <!-- NOTES + SIGNATURE -->
 
-            <h5>
-                Notes
-            </h5>
+        <div class="signature-section mt-4">
 
-            <p>
-                {{ invoice.notes }}
-            </p>
+            <!-- LEFT SIDE NOTES -->
 
-        </div>
+            <div class="notes-section">
 
-        <!-- SIGNATURE -->
+                <h5 class="note-title">
+                    Notes
+                </h5>
 
-        <div class="signature-section">
+                <p>
+                    {{ invoice.note }}
+                </p>
+
+            </div>
+
+            <!-- RIGHT SIDE SIGNATURE -->
 
             <div class="signature-box">
 

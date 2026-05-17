@@ -101,26 +101,27 @@ body {
     font-size: 12px;
 }
 
-/* NOTE SECTION */
-.notes-section {
-    width: 60%;
-    font-size: 12px;
-    line-height: 1.5;
-}
-
-.note-title {
-    font-weight: bold;
-    margin-bottom: 5px;
-    font-size: 13px;
-}
-
-/* SIGNATURE + NOTE */
+/* NOTES + SIGNATURE ROW */
 .signature-section {
     margin-top: 35px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     gap: 20px;
+}
+
+/* NOTES */
+.notes-section {
+    width: 60%;
+    font-size: 12px;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+.note-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 13px;
 }
 
 /* SIGNATURE BOX BACK TO NORMAL */
@@ -207,7 +208,7 @@ form select:focus {
         align-items: flex-start;
     }
 
-    .note-section {
+    .notes-section {
         width: 100%;
     }
 
