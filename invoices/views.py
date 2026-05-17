@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 import uuid
 from django.contrib.admin.views.decorators import staff_member_required
+from django.db.models.functions import ExtractMonth, ExtractYear
 
 from django.contrib.auth import (
     authenticate,
@@ -86,24 +87,49 @@ def dashboard(request):
 
     query = request.GET.get('q')
 
-    invoices = Invoice.objects.filter(
-                    user=request.user
-                ).order_by('-id')
+    month_filter = request.GET.get('month')
+    year_filter = request.GET.get('year')
 
+    invoices = Invoice.objects.filter(
+        user=request.user
+    ).order_by('-id')
+
+    # SEARCH FILTER
     if query:
 
         invoices = invoices.filter(
             invoice_number__icontains=query
         )
 
+    # MONTH FILTER
+    if month_filter:
+
+        year, month = month_filter.split('-')
+
+        invoices = invoices.filter(
+            invoice_date__year=year,
+            invoice_date__month=month
+        )
+
+    # YEAR FILTER
+    if year_filter:
+
+        invoices = invoices.filter(
+            invoice_date__year=year_filter
+        )
+
+    # TOTAL REVENUE
     total_revenue = sum(
         invoice.grand_total
         for invoice in invoices
     )
 
     context = {
+
         'invoices': invoices,
+
         'total_revenue': total_revenue
+
     }
 
     return render(
@@ -151,9 +177,38 @@ def customer_invoices(request, pk):
         user=request.user
     )
 
+    query = request.GET.get('q')
+
+    month_filter = request.GET.get('month')
+    year_filter = request.GET.get('year')
+
     invoices = Invoice.objects.filter(
         customer=customer
     ).order_by('-id')
+
+    # SEARCH
+    if query:
+
+        invoices = invoices.filter(
+            invoice_number__icontains=query
+        )
+
+    # MONTH FILTER
+    if month_filter:
+
+        year, month = month_filter.split('-')
+
+        invoices = invoices.filter(
+            invoice_date__year=year,
+            invoice_date__month=month
+        )
+
+    # YEAR FILTER
+    if year_filter:
+
+        invoices = invoices.filter(
+            invoice_date__year=year_filter
+        )
 
     total_revenue = sum(
         invoice.grand_total
@@ -167,6 +222,7 @@ def customer_invoices(request, pk):
         'invoices': invoices,
 
         'total_revenue': total_revenue
+
     }
 
     return render(
