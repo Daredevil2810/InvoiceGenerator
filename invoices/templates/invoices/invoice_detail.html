@@ -215,122 +215,124 @@
         </table>
 
         <!-- TOTALS -->
+        <div class="invoice-bottom-section">
+            <div class="row mt-4">
 
-        <div class="row mt-4">
+                <div class="col-md-6">
 
-            <div class="col-md-6">
+                    <div class="bank-box">
 
-                <div class="bank-box">
+                        <h5>
+                            Bank Details
+                        </h5>
 
-                    <h5>
-                        Bank Details
-                    </h5>
+                        <p>
+                            <strong>
+                                Bank:
+                            </strong>
 
-                    <p>
-                        <strong>
-                            Bank:
-                        </strong>
+                            {{ profile.bank_name }}
+                        </p>
 
-                        {{ profile.bank_name }}
-                    </p>
+                        <p>
+                            <strong>
+                                A/C No:
+                            </strong>
 
-                    <p>
-                        <strong>
-                            A/C No:
-                        </strong>
+                            {{ profile.account_number }}
+                        </p>
 
-                        {{ profile.account_number }}
-                    </p>
+                        <p>
+                            <strong>
+                                IFSC:
+                            </strong>
 
-                    <p>
-                        <strong>
-                            IFSC:
-                        </strong>
+                            {{ profile.ifsc_code }}
+                        </p>
 
-                        {{ profile.ifsc_code }}
-                    </p>
+                        <p>
+                            <strong>
+                                Branch:
+                            </strong>
 
-                    <p>
-                        <strong>
-                            Branch:
-                        </strong>
+                            {{ profile.branch }}
+                        </p>
+                        
+                        <p>
+                            <strong>
+                                UPI:
+                            </strong>
 
-                        {{ profile.branch }}
-                    </p>
-                    
-                    <p>
-                        <strong>
-                            UPI:
-                        </strong>
+                            {{ profile.upi_id }}
+                        </p>
 
-                        {{ profile.upi_id }}
-                    </p>
+                    </div>
 
                 </div>
 
-            </div>
+                <div class="col-md-6">
 
-            <div class="col-md-6">
+                    <div class="total-box">
 
-                <div class="total-box">
+                        <p>
 
-                    <p>
+                            <strong>
+                                Subtotal:
+                            </strong>
 
-                        <strong>
-                            Subtotal:
-                        </strong>
+                            ₹ {{ invoice.subtotal }}
 
-                        ₹ {{ invoice.subtotal }}
+                        </p>
 
-                    </p>
+                        <p>
 
-                    <p>
+                            <strong>
+                                CGST:
+                            </strong>
 
-                        <strong>
-                            CGST:
-                        </strong>
+                            ₹ {{ invoice.cgst }}
 
-                        ₹ {{ invoice.cgst }}
+                        </p>
 
-                    </p>
+                        <p>
 
-                    <p>
+                            <strong>
+                                SGST:
+                            </strong>
 
-                        <strong>
-                            SGST:
-                        </strong>
+                            ₹ {{ invoice.sgst }}
 
-                        ₹ {{ invoice.sgst }}
+                        </p>
 
-                    </p>
+                        <p>
 
-                    <p>
+                            <strong>
+                                Discount:
+                            </strong>
 
-                        <strong>
-                            Discount:
-                        </strong>
+                            ₹ {{ invoice.discount }}
 
-                        ₹ {{ invoice.discount }}
+                        </p>
 
-                    </p>
+                        <h4>
 
-                    <h4>
+                            Grand Total:
+                            ₹ {{ invoice.grand_total }}
 
-                        Grand Total:
-                        ₹ {{ invoice.grand_total }}
+                        </h4>
+                        <div class="mt-3 p-3 border rounded bg-light">
 
-                    </h4>
-                    <div class="mt-3 p-3 border rounded bg-light">
+                            <strong>
 
-                        <strong>
+                                Amount in Words:
 
-                            Amount in Words:
+                            </strong>
 
-                        </strong>
+                            <br>
 
-                        <br>
+                            {{ amount_in_words }}
 
-                        {{ amount_in_words }}
+                        </div>
 
                     </div>
 
@@ -338,34 +340,33 @@
 
             </div>
 
-        </div>
+            <!-- NOTES + SIGNATURE -->
 
-        <!-- NOTES + SIGNATURE -->
+            <div class="signature-section mt-4">
 
-        <div class="signature-section mt-4">
+                <!-- LEFT SIDE NOTES -->
 
-            <!-- LEFT SIDE NOTES -->
+                <div class="notes-section">
 
-            <div class="notes-section">
+                    <h5 class="note-title">
+                        Notes
+                    </h5>
 
-                <h5 class="note-title">
-                    Notes
-                </h5>
+                    <p>
+                        {{ invoice.notes }}
+                    </p>
 
-                <p>
-                    {{ invoice.notes }}
-                </p>
+                </div>
+
+                <!-- RIGHT SIDE SIGNATURE -->
+
+                <div class="signature-box">
+
+                    Authorized Signature
+
+                </div>
 
             </div>
-
-            <!-- RIGHT SIDE SIGNATURE -->
-
-            <div class="signature-box">
-
-                Authorized Signature
-
-            </div>
-
         </div>
 
         <!-- BUTTONS -->
