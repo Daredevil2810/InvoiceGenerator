@@ -199,8 +199,6 @@ class Invoice(models.Model):
         null=True
     )
 
-    note = models.TextField(blank=True, null=True)
-
     subtotal = models.DecimalField(
         max_digits=12,
         decimal_places=2,
