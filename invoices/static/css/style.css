@@ -536,69 +536,11 @@ input[type=number] {
 /* MOBILE PRINT FIX */
 @media print and (max-width: 768px) {
 
-    @page {
-
-        size: A4 portrait;
-        margin: 4mm;
-    }
-
-    html,
-    body {
-
-        width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    .invoice-container {
-
-        padding: 0 !important;
-    }
-
     .invoice-box {
 
-        width: 100% !important;
+        zoom: 0.82 !important;
 
-        max-width: 100% !important;
-
-        min-height: auto !important;
-
-        padding: 6mm !important;
-
-        margin: 0 auto !important;
-
-        zoom: 0.90 !important;
-    }
-
-    .invoice-header {
-
-        flex-direction: row !important;
-    }
-
-    .company-name {
-
-        font-size: 22px !important;
-    }
-
-    .invoice-title {
-
-        font-size: 24px !important;
-    }
-
-    .company-details,
-    .invoice-info-section p,
-    .customer-section p {
-
-        font-size: 11px !important;
-    }
-
-    .invoice-table {
-
-        display: table !important;
-
-        width: 100% !important;
-
-        white-space: normal !important;
+        padding: 5mm !important;
     }
 
     .invoice-table th,
@@ -609,15 +551,13 @@ input[type=number] {
         padding: 3px !important;
     }
 
-    .signature-section {
+    .company-name {
 
-        flex-direction: row !important;
+        font-size: 20px !important;
     }
 
-    .signature-box {
+    .invoice-title {
 
-        width: 180px !important;
-
-        min-height: 90px !important;
+        font-size: 24px !important;
     }
 }
