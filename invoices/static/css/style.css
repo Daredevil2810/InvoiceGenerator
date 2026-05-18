@@ -1,6 +1,23 @@
 body {
     background: #f4f6f9;
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* GLOBAL */
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    width: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
 }
 
 /* MAIN CONTAINER */
@@ -8,16 +25,26 @@ body {
     display: flex;
     justify-content: center;
     padding: 15px;
+    width: 100%;
 }
 
 /* A4 PAGE */
 .invoice-box {
+
     background: white;
-    width: 210mm;
+
+    width: 100%;
+    max-width: 210mm;
+
     min-height: 297mm;
+
     padding: 12mm;
+
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
     overflow: hidden;
+
+    box-sizing: border-box;
 }
 
 /* HEADER */
@@ -30,6 +57,7 @@ body {
     flex-wrap: nowrap;
 }
 
+/* CUSTOMER SECTION */
 .customer-section h5 {
     margin-bottom: 6px;
     font-size: 17px;
@@ -87,6 +115,10 @@ body {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
+
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 .invoice-table th {
@@ -110,15 +142,25 @@ body {
     padding: 10px;
     border-radius: 8px;
     font-size: 12px;
+    height: 100%;
 }
 
 /* MAIN BOTTOM COMBINED BOX */
 .invoice-bottom-section {
+
     border: 1px solid #ccc;
+
     border-radius: 10px;
+
     padding: 15px;
+
     margin-top: 20px;
+
     background: #fff;
+
+    page-break-inside: avoid;
+
+    break-inside: avoid;
 }
 
 /* NOTES + SIGNATURE ROW */
@@ -126,7 +168,7 @@ body {
     margin-top: 35px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: stretch;
     gap: 20px;
 }
 
@@ -150,35 +192,49 @@ body {
     font-size: 13px;
 }
 
+/* SIGNATURE BOX */
 .signature-box {
+
     width: 250px;
-    height: 120px;
+
+    min-height: 120px;
+
     border: 2px solid #000;
 
     display: flex;
+
     flex-direction: column;
+
     justify-content: space-between;
 
     padding: 10px;
+
     box-sizing: border-box;
 
     font-weight: bold;
+
     flex-shrink: 0;
 }
 
 /* COMPANY NAME INSIDE SIGNATURE */
 .signature-company {
+
     font-size: 11px;
+
     font-weight: bold;
+
     text-align: center;
-    margin-bottom: 65px;
+
     color: #000;
 }
 
 /* AUTHORIZED SIGNATURE TEXT */
 .signature-text {
+
     font-size: 13px;
+
     font-weight: bold;
+
     text-align: center;
 }
 
@@ -186,19 +242,41 @@ body {
 form input,
 form textarea,
 form select {
+
     width: 100%;
+
     padding: 12px;
+
     border-radius: 10px;
+
     border: 1px solid #ced4da;
+
     transition: 0.3s;
 }
 
 form input:focus,
 form textarea:focus,
 form select:focus {
+
     border-color: #198754;
+
     box-shadow: 0 0 8px rgba(25,135,84,0.25);
+
     outline: none;
+}
+
+/* REMOVE NUMBER INPUT ARROWS */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+
+    -webkit-appearance: none;
+
+    margin: 0;
+}
+
+input[type=number] {
+
+    -moz-appearance: textfield;
 }
 
 /* CARD */
@@ -211,148 +289,275 @@ form select:focus {
     border-top-right-radius: 20px !important;
 }
 
+/* BUTTONS */
+.btn {
+    width: auto;
+}
+
 /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
 
+    .invoice-container {
+
+        padding: 5px;
+    }
+
     .invoice-box {
+
         width: 100%;
-        padding: 15px;
+
+        min-height: auto;
+
+        padding: 10px;
     }
 
     .invoice-header {
+
         flex-direction: column;
+
         gap: 15px;
     }
 
     .company-section,
     .invoice-info-section {
+
         width: 100%;
+
         text-align: left;
     }
 
     .company-name {
+
         font-size: 22px;
     }
 
     .invoice-title {
+
         font-size: 28px;
     }
 
     .invoice-info-section p,
-    .company-details {
+    .company-details,
+    .customer-section p {
+
         font-size: 12px;
     }
 
     .invoice-table th,
     .invoice-table td {
+
         font-size: 10px;
+
         padding: 5px;
     }
 
-    .signature-section {
+    .row {
+
         flex-direction: column;
-        align-items: flex-start;
+    }
+
+    .col-md-6 {
+
+        width: 100%;
+
+        margin-bottom: 15px;
+    }
+
+    .signature-section {
+
+        flex-direction: column;
+
+        align-items: stretch;
     }
 
     .notes-section {
+
         width: 100%;
     }
 
     .signature-box {
-        width: 220px;
-        height: 100px;
-        padding-top: 70px;
+
+        width: 100%;
+
+        min-height: 100px;
+    }
+
+    .btn {
+
+        width: 100%;
+
+        margin-bottom: 10px;
     }
 }
 
 /* PRINT */
 @media print {
 
+    html,
     body {
+
+        width: 210mm;
+
+        height: auto;
+    }
+
+    body {
+
         background: white !important;
+
         margin: 0 !important;
+
         padding: 0 !important;
     }
 
     .navbar,
     .btn,
     .no-print {
+
         display: none !important;
     }
 
     .invoice-container {
+
         padding: 0 !important;
     }
 
     .invoice-box {
+
         width: 100% !important;
+
         min-height: auto !important;
+
         padding: 8mm !important;
+
         margin: 0 !important;
+
         box-shadow: none !important;
+
         border: none !important;
+
+        zoom: 0.92;
     }
 
     .container {
+
         width: 100% !important;
+
         max-width: 100% !important;
+
         padding: 0 !important;
+
         margin: 0 !important;
     }
 
     table {
+
         font-size: 11px !important;
     }
 
     .invoice-table th,
     .invoice-table td {
+
         padding: 5px !important;
     }
 
     h1, h2, h3, h4, h5 {
+
         margin-bottom: 4px !important;
     }
 
     p {
+
         margin-bottom: 2px !important;
     }
 
     .company-name {
+
         font-size: 26px !important;
     }
 
     .invoice-title {
+
         font-size: 30px !important;
     }
 
     .signature-box {
+
         width: 250px !important;
-        height: 120px !important;
+
+        min-height: 120px !important;
 
         display: flex !important;
+
         flex-direction: column !important;
+
         justify-content: space-between !important;
 
         padding: 10px !important;
+
         box-sizing: border-box !important;
 
         border: 2px solid #000 !important;
     }
 
     .signature-company {
+
         font-size: 11px !important;
+
         font-weight: bold !important;
+
         text-align: center !important;
     }
 
     .signature-text {
+
         font-size: 13px !important;
+
         font-weight: bold !important;
+
         text-align: center !important;
     }
 
+    .invoice-bottom-section {
+
+        page-break-inside: avoid !important;
+
+        break-inside: avoid !important;
+    }
+
     @page {
+
         size: A4;
+
         margin: 6mm;
+    }
+}
+
+/* MOBILE PRINT FIX */
+@media print and (max-width: 768px) {
+
+    .invoice-box {
+
+        zoom: 0.82 !important;
+
+        padding: 5mm !important;
+    }
+
+    .invoice-table th,
+    .invoice-table td {
+
+        font-size: 9px !important;
+
+        padding: 3px !important;
+    }
+
+    .company-name {
+
+        font-size: 20px !important;
+    }
+
+    .invoice-title {
+
+        font-size: 24px !important;
     }
 }
