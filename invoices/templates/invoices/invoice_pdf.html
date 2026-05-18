@@ -1,22 +1,6 @@
-{% load static %}
+{% extends 'invoices/base.html' %}
 
-<!DOCTYPE html>
-<html>
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <title>
-        {{ invoice.invoice_number }}
-    </title>
-
-    <link rel="stylesheet"
-          href="{% static 'css/style.css' %}">
-
-</head>
-
-<body>
+{% block content %}
 
 <div class="invoice-container">
 
@@ -26,16 +10,20 @@
 
         <div class="invoice-header">
 
-            <!-- LEFT -->
+            <!-- LEFT SIDE -->
 
             <div class="company-section">
 
                 <h1 class="company-name">
+
                     {{ profile.company_name }}
+
                 </h1>
 
                 <p class="company-details">
+
                     {{ profile.address }}
+
                 </p>
 
                 <p class="company-details">
@@ -64,12 +52,14 @@
 
             </div>
 
-            <!-- RIGHT -->
+            <!-- RIGHT SIDE -->
 
             <div class="invoice-info-section">
 
                 <h1 class="invoice-title">
+
                     TAX INVOICE
+
                 </h1>
 
                 <p>
@@ -127,7 +117,6 @@
             </h5>
 
             <p>
-
                 <strong>
 
                     {% if invoice.customer_company %}
@@ -141,7 +130,6 @@
                     {% endif %}
 
                 </strong>
-
             </p>
 
             {% if invoice.customer_company %}
@@ -156,19 +144,15 @@
             {% endif %}
 
             <p>
-
                 {{ invoice.customer_address }},
                 {{ invoice.customer_pincode }},
                 {{ invoice.customer_city }},
                 {{ invoice.customer_state }}
-
             </p>
 
             <p>
-
                 GST:
                 {{ invoice.customer_gst }}
-
             </p>
 
             <p>
@@ -182,10 +166,8 @@
             </p>
 
             <p>
-
                 Phone:
                 {{ invoice.customer_phone }}
-
             </p>
 
         </div>
@@ -198,33 +180,13 @@
 
                 <tr>
 
-                    <th>
-                        Sr no
-                    </th>
-
-                    <th>
-                        Description
-                    </th>
-
-                    <th>
-                        HSN
-                    </th>
-
-                    <th>
-                        Qty
-                    </th>
-
-                    <th>
-                        Rate
-                    </th>
-
-                    <th>
-                        GST
-                    </th>
-
-                    <th>
-                        Total
-                    </th>
+                    <th>Sr no</th>
+                    <th>Description</th>
+                    <th>HSN</th>
+                    <th>Qty</th>
+                    <th>Rate</th>
+                    <th>GST</th>
+                    <th>Total</th>
 
                 </tr>
 
@@ -272,13 +234,9 @@
 
         </table>
 
-        <!-- BOTTOM SECTION -->
-
+        <!-- TOTALS -->
         <div class="invoice-bottom-section">
-
             <div class="row mt-4">
-
-                <!-- BANK -->
 
                 <div class="col-md-6">
 
@@ -289,60 +247,48 @@
                         </h5>
 
                         <p>
-
                             <strong>
                                 Bank:
                             </strong>
 
                             {{ profile.bank_name }}
-
                         </p>
 
                         <p>
-
                             <strong>
                                 A/C No:
                             </strong>
 
                             {{ profile.account_number }}
-
                         </p>
 
                         <p>
-
                             <strong>
                                 IFSC:
                             </strong>
 
                             {{ profile.ifsc_code }}
-
                         </p>
 
                         <p>
-
                             <strong>
                                 Branch:
                             </strong>
 
                             {{ profile.branch }}
-
                         </p>
-
+                        
                         <p>
-
                             <strong>
                                 UPI:
                             </strong>
 
                             {{ profile.upi_id }}
-
                         </p>
 
                     </div>
 
                 </div>
-
-                <!-- TOTAL -->
 
                 <div class="col-md-6">
 
@@ -363,7 +309,7 @@
                         <p>
 
                             <strong>
-                                IGST:
+                                IGST (18%):
                             </strong>
 
                             ₹ {{ invoice.igst }}
@@ -375,7 +321,7 @@
                         <p>
 
                             <strong>
-                                CGST:
+                                CGST (9%):
                             </strong>
 
                             ₹ {{ invoice.cgst }}
@@ -385,7 +331,7 @@
                         <p>
 
                             <strong>
-                                SGST:
+                                SGST (9%):
                             </strong>
 
                             ₹ {{ invoice.sgst }}
@@ -410,11 +356,12 @@
                             ₹ {{ invoice.grand_total }}
 
                         </h4>
-
                         <div class="mt-3 p-3 border rounded bg-light">
 
                             <strong>
+
                                 Amount in Words:
+
                             </strong>
 
                             <br>
@@ -433,7 +380,7 @@
 
             <div class="signature-section mt-4">
 
-                <!-- NOTES -->
+                <!-- LEFT SIDE NOTES -->
 
                 <div class="notes-section">
 
@@ -447,32 +394,23 @@
 
                 </div>
 
-                <!-- SIGNATURE -->
+                <!-- RIGHT SIDE SIGNATURE -->
 
                 <div class="signature-box">
-
                     <div class="signature-company">
-
                         For {{ profile.company_name }}
-
                     </div>
 
                     <div class="signature-text">
-
                         Authorized Signature
-
                     </div>
-
                 </div>
 
             </div>
-
         </div>
 
     </div>
 
 </div>
 
-</body>
-
-</html>
+{% endblock %}
