@@ -132,9 +132,4 @@ urlpatterns = [
         name='logout'
     ),
 
-    path(
-        'invoice/<int:pk>/pdf/',
-        views.download_invoice_pdf,
-        name='download_invoice_pdf'
-    ),
 ]
