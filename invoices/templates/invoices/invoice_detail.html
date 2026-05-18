@@ -413,7 +413,7 @@
 
         <div class="mt-4 no-print">
 
-            <button onclick="window.print()"
+            <button onclick="printInvoice()"
                     class="btn btn-primary">
 
                 Print Invoice
@@ -428,8 +428,13 @@
 
 <script>
 
+function printInvoice() {
+
     document.title =
-        "{{ invoice.invoice_number }}_{{ invoice.invoice_date }}_{{ invoice.customer_company|default:invoice.customer_name }}";
+        "{{ invoice.invoice_number }}_{{ invoice.customer_company|default:invoice.customer_name }}";
+
+    window.print();
+}
 
 </script>
 
