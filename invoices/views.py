@@ -618,12 +618,43 @@ def create_invoice(request):
                 amount=amount
             )
 
+        # invoice.subtotal = subtotal
+
+        # invoice.cgst = total_gst / 2
+
+        # invoice.sgst = total_gst / 2
+
+        # invoice.grand_total = (
+        #     subtotal
+        #     + total_gst
+        #     - invoice.discount
+        # )
+
         invoice.subtotal = subtotal
 
-        invoice.cgst = total_gst / 2
+        # GET COMPANY PROFILE
+        company_profile = CompanyProfile.objects.filter(
+            user=request.user
+        ).first()
 
-        invoice.sgst = total_gst / 2
+        # GST LOGIC
+        if company_profile and (
+            company_profile.state_code == customer.state_code
+        ):
 
+            # SAME STATE → CGST + SGST
+            invoice.cgst = total_gst / 2
+            invoice.sgst = total_gst / 2
+            invoice.igst = Decimal('0.00')
+
+        else:
+
+            # DIFFERENT STATE → IGST
+            invoice.cgst = Decimal('0.00')
+            invoice.sgst = Decimal('0.00')
+            invoice.igst = total_gst
+
+        # GRAND TOTAL
         invoice.grand_total = (
             subtotal
             + total_gst

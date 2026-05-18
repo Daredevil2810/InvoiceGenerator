@@ -304,10 +304,24 @@
 
                         </p>
 
+                        {% if invoice.igst > 0 %}
+
                         <p>
 
                             <strong>
-                                CGST:
+                                IGST (18%):
+                            </strong>
+
+                            ₹ {{ invoice.igst }}
+
+                        </p>
+
+                        {% else %}
+
+                        <p>
+
+                            <strong>
+                                CGST (9%):
                             </strong>
 
                             ₹ {{ invoice.cgst }}
@@ -317,12 +331,14 @@
                         <p>
 
                             <strong>
-                                SGST:
+                                SGST (9%):
                             </strong>
 
                             ₹ {{ invoice.sgst }}
 
                         </p>
+
+                        {% endif %}
 
                         <p>
 
