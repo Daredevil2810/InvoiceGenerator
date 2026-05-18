@@ -618,18 +618,6 @@ def create_invoice(request):
                 amount=amount
             )
 
-        # invoice.subtotal = subtotal
-
-        # invoice.cgst = total_gst / 2
-
-        # invoice.sgst = total_gst / 2
-
-        # invoice.grand_total = (
-        #     subtotal
-        #     + total_gst
-        #     - invoice.discount
-        # )
-
         invoice.subtotal = subtotal
 
         # GET COMPANY PROFILE

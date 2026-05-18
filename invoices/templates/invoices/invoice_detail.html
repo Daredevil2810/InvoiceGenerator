@@ -426,4 +426,11 @@
 
 </div>
 
+<script>
+
+    document.title =
+        "{{ invoice.invoice_number }}_{{ invoice.invoice_date }}_{{ invoice.customer_company|default:invoice.customer_name }}";
+
+</script>
+
 {% endblock %}
