@@ -3,6 +3,9 @@ from django.shortcuts import (
     redirect,
     get_object_or_404
 )
+from django.http import HttpResponse
+from django.template.loader import render_to_string
+from weasyprint import HTML, CSS
 
 from num2words import num2words
 from decimal import Decimal
@@ -704,6 +707,69 @@ def invoice_detail(request, pk):
             'amount_in_words': amount_in_words
         }
     )
+
+@login_required
+def download_invoice_pdf(request, pk):
+
+    invoice = get_object_or_404(
+        Invoice,
+        pk=pk,
+        user=request.user
+    )
+
+    profile = CompanyProfile.objects.filter(
+        user=request.user
+    ).first()
+
+    amount_in_words = num2words(
+        invoice.grand_total,
+        lang='en_IN'
+    ).title() + ' Rupees Only'
+
+    html_string = render_to_string(
+        'invoices/invoice_pdf.html',
+        {
+            'invoice': invoice,
+            'profile': profile,
+            'amount_in_words': amount_in_words
+        }
+    )
+
+    html = HTML(string=html_string)
+
+    pdf = html.write_pdf(
+        stylesheets=[
+            CSS(string='''
+
+                @page {
+                    size: A4;
+                    margin: 8mm;
+                }
+
+                body {
+                    font-family: Arial, sans-serif;
+                }
+
+            ''')
+        ]
+    )
+
+    company_name = profile.company_name.replace(' ', '_')
+
+    filename = (
+        f'{invoice.invoice_number}_{company_name}.pdf'
+    )
+
+    response = HttpResponse(
+        pdf,
+        content_type='application/pdf'
+    )
+
+    response['Content-Disposition'] = (
+        f'inline; filename="{filename}"'
+    )
+
+    return response
 
 
 @login_required

@@ -118,17 +118,23 @@ urlpatterns = [
     'signup/',
     views.signup_view,
     name='signup'
-),
+    ),
 
-path(
-    'login/',
-    views.login_view,
-    name='login'
-),
+    path(
+        'login/',
+        views.login_view,
+        name='login'
+    ),
 
-path(
-    'logout/',
-    views.logout_view,
-    name='logout'
-),
+    path(
+        'logout/',
+        views.logout_view,
+        name='logout'
+    ),
+
+    path(
+        'invoice/<int:pk>/pdf/',
+        views.download_invoice_pdf,
+        name='download_invoice_pdf'
+    ),
 ]
