@@ -22,6 +22,18 @@ class CompanyProfile(models.Model):
 
     gst_number = models.CharField(max_length=100)
 
+    state_name = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True
+    )
+
+    state_code = models.CharField(
+        max_length=10,
+        blank=True,
+        null=True
+    )
+
     phone = models.CharField(max_length=20)
 
     email = models.EmailField(blank=True, null=True)
@@ -73,6 +85,18 @@ class Customer(models.Model):
 
     gst_number = models.CharField(
         max_length=100,
+        blank=True,
+        null=True
+    )
+
+    state_name = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True
+    )
+
+    state_code = models.CharField(
+        max_length=10,
         blank=True,
         null=True
     )

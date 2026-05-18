@@ -35,6 +35,16 @@
 
                 <p class="company-details">
 
+                    State:
+                    {{ profile.state_name }}
+
+                    (Code:
+                    {{ profile.state_code }})
+
+                </p>
+
+                <p class="company-details">
+
                     Phone:
                     {{ profile.phone }}
 
@@ -143,6 +153,16 @@
             <p>
                 GST:
                 {{ invoice.customer_gst }}
+            </p>
+
+            <p>
+
+                State:
+                {{ invoice.customer.state_name }}
+
+                (Code:
+                {{ invoice.customer.state_code }})
+
             </p>
 
             <p>
