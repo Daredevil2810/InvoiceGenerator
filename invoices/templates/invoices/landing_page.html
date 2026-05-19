@@ -70,6 +70,66 @@
             padding:30px 0;
         }
 
+        /* NOTICE BAR */
+        .notice-bar {
+
+            width: 100%;
+
+            background: #000;
+
+            overflow: hidden;
+
+            white-space: nowrap;
+
+            padding: 10px 0;
+
+            border-top: 2px solid #00ffcc;
+
+            border-bottom: 2px solid #00ffcc;
+        }
+
+        .notice-text {
+
+            display: inline-block;
+
+            padding-left: 100%;
+
+            animation: marquee 35s linear infinite;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            color: #00ffcc;
+
+            font-family: Consolas, monospace;
+
+            text-shadow: 0 0 5px #00ffcc;
+        }
+
+        /* MOVING ANIMATION */
+        @keyframes marquee {
+
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+
+            .notice-text {
+
+                font-size: 11px;
+
+                animation-duration: 28s;
+            }
+        }
+
     </style>
 
 </head>
@@ -110,6 +170,13 @@
     </div>
 
 </nav>
+<div class="notice-bar">
+    <div class="notice-text">
+
+        🚀 This platform was originally developed for a specific company and later converted into a multi-tenant GST Invoice Generator SaaS application where multiple businesses can manage invoices independently. Due to current database service limitations, new permanent registrations are temporarily disabled. However, you can still explore all major features using the free Demo Mode — no signup or login required. Demo users can create invoices and test the system with some limitations mentioned on the demo section. Demo access automatically expires after 10 minutes, but you can restart the demo anytime. ⚠️ For the best invoice viewing and printing experience, please use a desktop or laptop device. Mobile printing layouts may not render correctly at the moment.
+
+    </div>
+</div>
 
 <!-- HERO SECTION -->
 
