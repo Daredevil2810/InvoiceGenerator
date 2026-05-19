@@ -356,3 +356,146 @@ form select:focus {
         margin: 6mm;
     }
 }
+
+
+
+/* =========================================
+   MOBILE RESPONSIVE WEBSITE UI
+========================================= */
+
+@media (max-width: 768px) {
+
+    /* MAIN CONTAINER */
+    .container,
+    .container-fluid {
+
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
+    /* NAVBAR */
+    .navbar {
+
+        padding: 10px 12px !important;
+    }
+
+    .navbar-brand {
+
+        font-size: 18px !important;
+    }
+
+    /* CARDS */
+    .card {
+
+        border-radius: 14px !important;
+        margin-bottom: 15px !important;
+    }
+
+    .card-body {
+
+        padding: 15px !important;
+    }
+
+    /* HEADINGS */
+    h1 {
+
+        font-size: 26px !important;
+    }
+
+    h2 {
+
+        font-size: 24px !important;
+    }
+
+    h3 {
+
+        font-size: 22px !important;
+    }
+
+    h4 {
+
+        font-size: 20px !important;
+    }
+
+    h5 {
+
+        font-size: 18px !important;
+    }
+
+    /* TABLE RESPONSIVE */
+    .table-responsive {
+
+        overflow-x: auto;
+    }
+
+    table {
+
+        min-width: 700px;
+    }
+
+    /* FORM INPUTS */
+    form input,
+    form textarea,
+    form select {
+
+        font-size: 16px !important;
+        padding: 10px !important;
+    }
+
+    /* BUTTONS */
+    .btn {
+
+        width: 100%;
+        margin-bottom: 10px;
+        font-size: 15px !important;
+        padding: 10px !important;
+    }
+
+    /* FLEX ROW FIX */
+    .row {
+
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .col,
+    .col-md-6,
+    .col-md-4,
+    .col-md-3,
+    .col-lg-4,
+    .col-lg-6 {
+
+        width: 100% !important;
+        margin-bottom: 15px;
+    }
+
+    /* DASHBOARD STATS */
+    .dashboard-card {
+
+        margin-bottom: 15px;
+    }
+
+    /* SEARCH BAR */
+    .search-bar {
+
+        width: 100% !important;
+    }
+
+    /* CUSTOMER/PRODUCT LIST */
+    .list-group-item {
+
+        padding: 12px !important;
+    }
+
+    /* MODALS */
+    .modal-dialog {
+
+        margin: 10px !important;
+    }
+
+    /* HIDE OVERFLOW */
+    body {
+
+        overflow-x: hidden;
+    }
+}
