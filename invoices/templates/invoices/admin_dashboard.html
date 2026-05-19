@@ -268,6 +268,9 @@
                             <th>Username</th>
 
                             <th>Created At</th>
+                            <th width="120">
+                                Actions
+                            </th>
 
                         </tr>
 
@@ -285,6 +288,18 @@
 
                             <td>
                                 {{ profile.demo_created_at }}
+                            </td>
+
+                            <td>
+
+                                <a href="{% url 'delete_user' profile.id %}"
+                                class="btn btn-danger btn-sm"
+                                onclick="return confirm('Delete this demo user?')">
+
+                                    Delete
+
+                                </a>
+
                             </td>
 
                         </tr>
