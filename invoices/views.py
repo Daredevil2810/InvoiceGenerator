@@ -507,17 +507,34 @@ def create_invoice(request):
             id=customer_id
         )
 
-        invoice_count = Invoice.objects.filter(
-                            user=request.user
-                        ).count() + 1
-
         from datetime import datetime
 
         year = datetime.now().year
 
-        invoice_number = (
-        f'INV-{year}-{invoice_count:04d}'
-        )
+        # GET LAST USER INVOICE
+        last_invoice = Invoice.objects.filter(
+            user=request.user
+        ).order_by('-id').first()
+
+        if last_invoice:
+
+            try:
+
+                last_number = int(
+                    last_invoice.invoice_number.split('-')[-1]
+                )
+
+                new_number = last_number + 1
+
+            except:
+
+                new_number = 1
+
+        else:
+
+            new_number = 1
+
+        invoice_number = f'INV-{year}-{new_number:04d}'
 
         invoice = Invoice.objects.create(
             user=request.user,
