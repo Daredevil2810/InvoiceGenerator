@@ -122,6 +122,7 @@ def dashboard(request):
     total_revenue = sum(
         invoice.grand_total
         for invoice in invoices
+        if not invoice.is_cancelled
     )
 
     context = {
@@ -213,6 +214,7 @@ def customer_invoices(request, pk):
     total_revenue = sum(
         invoice.grand_total
         for invoice in invoices
+        if not invoice.is_cancelled
     )
 
     context = {
