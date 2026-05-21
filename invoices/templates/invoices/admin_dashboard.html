@@ -206,11 +206,15 @@
 
                             <td>
 
-                                <a href="{% url 'delete_user' profile.id %}"
-                                   class="btn btn-danger btn-sm"
-                                   onclick="return confirm('Delete this user?');">
+                                <a href="#"
+                                class="btn btn-danger btn-sm"
+                                onclick="openActionModal(
+                                '{% url 'delete_user' profile.id %}',
+                                'Delete User',
+                                'This action permanently deletes the user and all related data.'
+                                )">
 
-                                   Delete
+                                    Delete
 
                                 </a>
 
@@ -292,9 +296,13 @@
 
                             <td>
 
-                                <a href="{% url 'delete_user' profile.id %}"
+                                <a href="#"
                                 class="btn btn-danger btn-sm"
-                                onclick="return confirm('Delete this demo user?')">
+                                onclick="openActionModal(
+                                '{% url 'delete_user' profile.id %}',
+                                'Delete Demo User',
+                                'This demo user and all demo data will be permanently deleted.'
+                                )">
 
                                     Delete
 
