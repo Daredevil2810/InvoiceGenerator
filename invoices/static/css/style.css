@@ -499,3 +499,73 @@ form select:focus {
         overflow-x: hidden;
     }
 }
+
+
+/* PRINT GUIDE MODAL */
+
+.print-guide-modal {
+
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.6);
+
+    z-index: 9999;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.print-guide-content {
+
+    background: #fff;
+
+    width: 90%;
+    max-width: 450px;
+
+    border-radius: 12px;
+
+    padding: 25px;
+
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.print-guide-content h4 {
+
+    margin-bottom: 15px;
+
+    font-weight: bold;
+}
+
+.print-guide-content ul {
+
+    padding-left: 18px;
+
+    margin-bottom: 20px;
+}
+
+.print-guide-content li {
+
+    margin-bottom: 10px;
+
+    font-size: 14px;
+}
+
+.print-guide-buttons {
+
+    display: flex;
+
+    gap: 10px;
+}
+
+.print-guide-buttons .btn {
+
+    flex: 1;
+}

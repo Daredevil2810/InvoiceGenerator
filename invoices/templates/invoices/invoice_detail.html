@@ -413,12 +413,71 @@
 
         <div class="mt-4 no-print">
 
-            <button onclick="printInvoice()"
-                    class="btn btn-primary">
+            <button onclick="openPrintGuide()"
+                class="btn btn-primary">
 
                 Print Invoice
 
             </button>
+
+        </div>
+        <!-- PRINT GUIDE MODAL -->
+
+        <div id="printGuideModal" class="print-guide-modal">
+
+            <div class="print-guide-content">
+
+                <h4>
+                    Recommended Print Settings
+                </h4>
+
+                <ul>
+
+                    <li>
+                        Paper Size: <strong>A4</strong>
+                    </li>
+
+                    <li>
+                        Margins: <strong>Minimum</strong>
+                    </li>
+
+                    <li>
+                        Scale: <strong>89%</strong>
+                    </li>
+
+                    <li>
+                        Disable browser Headers & Footers
+                    </li>
+
+                    <li>
+                        Use browser Zoom at <strong>100%</strong>
+                    </li>
+
+                    <li>
+                        For best results use Desktop/Laptop
+                    </li>
+
+                </ul>
+
+                <div class="print-guide-buttons">
+
+                    <button onclick="startPrinting()"
+                            class="btn btn-success">
+
+                        Continue Printing
+
+                    </button>
+
+                    <button onclick="closePrintGuide()"
+                            class="btn btn-secondary">
+
+                        Cancel
+
+                    </button>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -428,10 +487,23 @@
 
 <script>
 
-function printInvoice() {
+function openPrintGuide() {
 
-    document.title =
-        "{{ invoice.invoice_number }}_{{ invoice.customer_company|default:invoice.customer_name }}";
+    document.getElementById(
+        'printGuideModal'
+    ).style.display = 'flex';
+}
+
+function closePrintGuide() {
+
+    document.getElementById(
+        'printGuideModal'
+    ).style.display = 'none';
+}
+
+function startPrinting() {
+
+    closePrintGuide();
 
     window.print();
 }
