@@ -226,20 +226,25 @@
 
                             </a>
 
-                            <a href="{% url 'delete_invoice' invoice.id %}"
-                               class="btn btn-sm btn-danger"
-
-                               onclick="return confirm(
-                               'Delete this invoice?'
-                               )">
+                            <a href="#"
+                            class="btn btn-danger btn-sm"
+                            onclick="openActionModal(
+                                '{% url "delete_invoice" invoice.id %}',
+                                'Delete Invoice',
+                                'This action permanently deletes the invoice and may affect invoice numbering.'
+                            )">
 
                                 Delete
 
                             </a>
 
-                            <a href="{% url 'cancel_invoice' invoice.id %}"
-                                class="btn btn-warning btn-sm"
-                                onclick="return confirm('Are you sure you want to cancel this invoice?')">
+                            <a href="#"
+                            class="btn btn-warning btn-sm"
+                            onclick="openActionModal(
+                                '{% url "cancel_invoice" invoice.id %}',
+                                'Cancel Invoice',
+                                'Cancelled invoices remain in records but are excluded from revenue calculations.'
+                            )">
 
                                 Cancel
 

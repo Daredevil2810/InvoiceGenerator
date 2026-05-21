@@ -250,3 +250,29 @@ function calculateTotals() {
         'grand-total'
     ).innerText = grandTotal.toFixed(2);
 }
+
+function openActionModal(url, title, message) {
+
+    document.getElementById(
+        'actionModal'
+    ).style.display = 'flex';
+
+    document.getElementById(
+        'actionModalTitle'
+    ).innerText = title;
+
+    document.getElementById(
+        'actionModalMessage'
+    ).innerText = message;
+
+    document.getElementById(
+        'actionModalConfirm'
+    ).href = url;
+}
+
+function closeActionModal() {
+
+    document.getElementById(
+        'actionModal'
+    ).style.display = 'none';
+}
