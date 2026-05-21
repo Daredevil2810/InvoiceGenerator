@@ -6,6 +6,14 @@
 
     <div class="invoice-box">
 
+        {% if invoice.is_cancelled %}
+
+        <div class="cancelled-stamp">
+            CANCELLED
+        </div>
+
+        {% endif %}
+
         <!-- HEADER -->
 
         <div class="invoice-header">

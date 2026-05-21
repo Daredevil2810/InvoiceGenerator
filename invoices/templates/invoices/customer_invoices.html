@@ -183,6 +183,13 @@
                         <td>
 
                             {{ invoice.invoice_number }}
+                            {% if invoice.is_cancelled %}
+
+                            <span class="badge bg-danger">
+                                Cancelled
+                            </span>
+
+                            {% endif %}
 
                         </td>
 
@@ -227,6 +234,14 @@
                                )">
 
                                 Delete
+
+                            </a>
+
+                            <a href="{% url 'cancel_invoice' invoice.id %}"
+                                class="btn btn-warning btn-sm"
+                                onclick="return confirm('Are you sure you want to cancel this invoice?')">
+
+                                Cancel
 
                             </a>
 

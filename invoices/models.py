@@ -170,6 +170,10 @@ class Invoice(models.Model):
         # unique=True
     )
 
+    is_cancelled = models.BooleanField(
+        default=False
+    )
+
     customer = models.ForeignKey(
         Customer,
         on_delete=models.CASCADE

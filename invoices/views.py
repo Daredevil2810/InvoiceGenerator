@@ -965,3 +965,23 @@ def delete_user(request, pk):
     )
 
     return redirect('admin_dashboard')
+
+@login_required
+def cancel_invoice(request, pk):
+
+    invoice = get_object_or_404(
+        Invoice,
+        pk=pk,
+        user=request.user
+    )
+
+    invoice.is_cancelled = True
+
+    invoice.save()
+
+    messages.success(
+        request,
+        'Invoice cancelled successfully.'
+    )
+
+    return redirect('dashboard')

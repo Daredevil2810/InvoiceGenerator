@@ -132,4 +132,10 @@ urlpatterns = [
         name='logout'
     ),
 
+    path(
+        'invoice/<int:pk>/cancel/',
+        views.cancel_invoice,
+        name='cancel_invoice'
+    ),
+
 ]

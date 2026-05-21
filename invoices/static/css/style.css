@@ -13,6 +13,7 @@ body {
 /* A4 PAGE */
 .invoice-box {
     background: white;
+    position: relative;
     width: 210mm;
     min-height: 297mm;
     padding: 12mm;
@@ -212,6 +213,7 @@ form select:focus {
     .invoice-box {
         width: 100%;
         padding: 15px;
+        position: relative;
     }
 
     .invoice-header {
@@ -280,6 +282,7 @@ form select:focus {
 
     .invoice-box {
         width: 100% !important;
+        position: relative;
         min-height: auto !important;
         padding: 8mm !important;
         margin: 0 !important;
@@ -568,4 +571,31 @@ form select:focus {
 .print-guide-buttons .btn {
 
     flex: 1;
+}
+
+.cancelled-stamp {
+
+    position: absolute;
+
+    top: 45%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%) rotate(-15deg);
+
+    font-size: 60px;
+
+    color: red;
+
+    border: 5px solid red;
+
+    padding: 15px 30px;
+
+    font-weight: bold;
+
+    opacity: 0.18;
+
+    z-index: 999;
+
+    pointer-events: none;
 }
